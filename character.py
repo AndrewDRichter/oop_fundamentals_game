@@ -26,8 +26,9 @@ class Hero(Character):
         print(f"{self.name} equipped {self.weapon.name}")
         
     def drop(self) -> None:
-        print(f"{self.name} dropped {self.weapon.name}")
-        self.weapon = self.default_weapon
+        if self.weapon != self.default_weapon:
+            print(f"{self.name} dropped {self.weapon.name}")
+            self.weapon = self.default_weapon
 
 class Enemy(Character):
     def __init__(self, name: str, health: int, weapon):
